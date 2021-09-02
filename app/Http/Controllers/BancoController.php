@@ -15,7 +15,8 @@ class BancoController extends Controller
     }
     public function nuevo()
     {
-        return view('bancos.nuevo');
+        $data = array('bancos' => Banco::all() );
+        return view('bancos.nuevo',$data);
     }
 
     //David,metodo para recibir datos del formulario y almacenar en bbdd 27/08/2021
@@ -52,6 +53,27 @@ class BancoController extends Controller
         Banco::destroy($id);
         $request->session()->flash('estado', 'Banco eliminado exitosamente');
         return redirect()->route('bancos');
+    }
+
+
+    //David: metodo para editar banco , recibe un parametro de entrad que es el id
+    public function editar($id)
+    {
+        $sql_banco=Banco::find($id);
+        return view('bancos.editar',['banco'=>$sql_banco]);
+    }
+
+    public function actualizar(Request $request)
+    {
+        
+
+        $banco=Banco::find($request->id);
+        $banco->nombre=$request->nombre;
+        $banco->descripcion=$request->descripcion;
+        $banco->save();
+        $request->session()->flash('estado', 'Banco actualizado exitosamente');
+        return redirect()->route('bancos');
+
     }
 
 }

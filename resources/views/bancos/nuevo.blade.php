@@ -3,17 +3,6 @@
     <div class="card">
         <div class="card-body">
 
-            @if ($errors->any())
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-            @endif
-
             <form method="POST" action="{{ route('guardarBanco') }}">
                 
                 @csrf
@@ -31,6 +20,16 @@
 
                 <button type="submit" class="btn btn-success">Guardar</button>
                 <a class="btn btn-danger" href="{{ route('bancos') }}">CANCELAR</a>
+
+
+<hr>
+ayuda
+          <select class="form-select" name="banco" aria-label="Default select example">
+            @foreach ($bancos as $banco )
+              <option value="{{$banco->id}}">{{$banco->nombre}}</option>    
+            @endforeach
+            
+          </select>
 
             </form>
 

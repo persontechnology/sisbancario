@@ -28,5 +28,7 @@ Route::get('/nuevo-banco',[BancoController::class,'nuevo'])->name('bancosNuevo')
 Route::post('/guardar-banco',[BancoController::class,'guardar'])->name('guardarBanco');
 Route::get('/eliminar-banco/{id}',[BancoController::class,'eliminar'])->name('eliminarBanco');
 Route::get('/destruir-banco/{id}',[BancoController::class,'destruir'])->name('destruirBanco');
+Route::get('/editar-banco/{id}',[BancoController::class,'editar'])->name('editarBanco');
+Route::post('/actualizar-banco',[BancoController::class,'actualizar'])->name('actualizarBanco');
 
 require __DIR__.'/auth.php';

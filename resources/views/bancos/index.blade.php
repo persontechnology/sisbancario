@@ -1,14 +1,5 @@
 <x-app-layout>
 
-    @if(Session::has('estado'))
-    <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <strong>{{ Session::get('estado') }}</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-        
-    @endif
-
-
     <a class="btn btn-primary" href="{{ route('bancosNuevo') }}" role="button">
         Crear nuevo banco
     </a> 
@@ -36,8 +27,15 @@
                         {{ $banco->descripcion}}
                     </td>
                     <td>
-                        <button class="btn btn-primary">editar</button>
-                        <a href="{{ route('eliminarBanco',$banco->id) }}" class="btn btn-danger">eliminar</a>
+                        
+                        <a href="{{route('editarBanco',$banco->id)}}" class="btn btn-primary">
+                            <i class="fas fa-edit"></i>
+                        </a>
+
+                        <a href="{{ route('eliminarBanco',$banco->id) }}" class="btn btn-danger">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                     
                     </td>
                 </tr>
             @endforeach

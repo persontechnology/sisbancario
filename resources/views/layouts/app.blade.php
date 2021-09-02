@@ -12,7 +12,7 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
 
     
-
+    <link href="{{asset('fontawesome-free-5.15.4-web/css/all.min.css')}}" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('bootstrap-5.1.0-dist/css/bootstrap.min.css') }}" rel="stylesheet">
 
@@ -80,6 +80,24 @@
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="container">
+        @if ($errors->any())
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          @endif
+
+          @if(Session::has('estado'))
+              <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                  <strong>{{ Session::get('estado') }}</strong>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+              </div>
+          @endif
+
         {{ $slot }}
       </div>
     </main>

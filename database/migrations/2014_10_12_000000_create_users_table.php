@@ -26,6 +26,11 @@ class CreateUsersTable extends Migration
             $table->string('nombres')->nullable();
             $table->string('apellidos')->nullable();
             $table->string('cedula')->nullable();
+
+            //RELACION DE UNO A MUCHOS (BANCO -> CLIENTES)
+            $table->unsignedBigInteger('banco_id')->nullable();
+            $table->foreign('banco_id')->references('id')->on('bancos');
+
         });
     }
 
