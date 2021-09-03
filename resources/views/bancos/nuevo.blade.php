@@ -4,7 +4,7 @@
         <div class="card-body">
 
             <form method="POST" action="{{ route('guardarBanco') }}">
-                
+
                 @csrf
 
                 <div class="mb-3">
@@ -20,16 +20,6 @@
 
                 <button type="submit" class="btn btn-success">Guardar</button>
                 <a class="btn btn-danger" href="{{ route('bancos') }}">CANCELAR</a>
-
-
-<hr>
-ayuda
-          <select class="form-select" name="banco" aria-label="Default select example">
-            @foreach ($bancos as $banco )
-              <option value="{{$banco->id}}">{{$banco->nombre}}</option>    
-            @endforeach
-            
-          </select>
 
             </form>
 

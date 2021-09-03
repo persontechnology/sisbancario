@@ -15,8 +15,7 @@ class BancoController extends Controller
     }
     public function nuevo()
     {
-        $data = array('bancos' => Banco::all() );
-        return view('bancos.nuevo',$data);
+        return view('bancos.nuevo');
     }
 
     //David,metodo para recibir datos del formulario y almacenar en bbdd 27/08/2021
@@ -65,7 +64,11 @@ class BancoController extends Controller
 
     public function actualizar(Request $request)
     {
-        
+
+        $request->validate([
+            'nombre' => 'required|max:255|unique:bancos,nombre,'.$request->id,
+            'descripcion' => 'nullable|max:255',
+        ]);
 
         $banco=Banco::find($request->id);
         $banco->nombre=$request->nombre;
@@ -74,6 +77,15 @@ class BancoController extends Controller
         $request->session()->flash('estado', 'Banco actualizado exitosamente');
         return redirect()->route('bancos');
 
+    }
+
+
+    // funcion para ver el listado de clientes de cada banco
+    public function listadoClientes($idBanco)
+    {
+        $banco=Banco::find($idBanco);
+        $data = array('listado_clientes' =>$banco->usuarios );
+        return view('bancos.listadoClientes',$data);
     }
 
 }

@@ -11,7 +11,7 @@
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/dashboard/">
 
-    
+
     <link href="{{asset('fontawesome-free-5.15.4-web/css/all.min.css')}}" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('bootstrap-5.1.0-dist/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -32,12 +32,12 @@
       }
     </style>
 
-    
+
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
   </head>
   <body>
-    
+
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
   <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="{{ route('dashboard') }}">
       {{ config('app.name','B.Guayaquil') }}
@@ -63,17 +63,29 @@
         <ul class="nav flex-column">
           <li class="nav-item">
             <a class="nav-link {{ request()->routeIs('dashboard')?'active':'' }}" aria-current="page" href="{{ route('dashboard') }}">
-              <span data-feather="home"></span>
+                <i class="fas fa-home"></i>
               Inicio
             </a>
 
           </li>
+
           <li class="nav-item">
             <a class="nav-link {{ request()->routeIs('bancos')?'active':'' }}" href="{{ route('bancos') }}">
-              <span data-feather="file"></span>
+                <i class="fas fa-university"></i>
               Bancos
             </a>
           </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link {{ request()->routeIs('clientes')?'active':'' }}" href="{{ route('clientes') }}">
+            <i class="fas fa-users"></i>
+              Clientes
+            </a>
+          </li>
+
+
+
         </ul>
       </div>
     </nav>

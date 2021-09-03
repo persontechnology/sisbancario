@@ -2,7 +2,7 @@
 
     <a class="btn btn-primary" href="{{ route('bancosNuevo') }}" role="button">
         Crear nuevo banco
-    </a> 
+    </a>
 
     <div class="table-responsive">
         <table class="table">
@@ -27,7 +27,12 @@
                         {{ $banco->descripcion}}
                     </td>
                     <td>
-                        
+
+                        <a href="{{route('listadoClientesBanco',$banco->id)}}" class="btn btn-dark">
+                            <i class="fas fa-users"></i>
+                        </a>
+
+
                         <a href="{{route('editarBanco',$banco->id)}}" class="btn btn-primary">
                             <i class="fas fa-edit"></i>
                         </a>
@@ -35,11 +40,11 @@
                         <a href="{{ route('eliminarBanco',$banco->id) }}" class="btn btn-danger">
                             <i class="fas fa-trash"></i>
                         </a>
-                     
+
                     </td>
                 </tr>
             @endforeach
-            
+
         </table>
     </div>
 

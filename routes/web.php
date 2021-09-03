@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BancoController;
+use App\Http\Controllers\ClienteController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,5 +31,11 @@ Route::get('/eliminar-banco/{id}',[BancoController::class,'eliminar'])->name('el
 Route::get('/destruir-banco/{id}',[BancoController::class,'destruir'])->name('destruirBanco');
 Route::get('/editar-banco/{id}',[BancoController::class,'editar'])->name('editarBanco');
 Route::post('/actualizar-banco',[BancoController::class,'actualizar'])->name('actualizarBanco');
+Route::get('/listado-clientes-banco/{id}',[BancoController::class,'listadoClientes'])->name('listadoClientesBanco');
+
+// rutas para clientes
+Route::get('/clientes',[ClienteController::class,'index'])->name('clientes');
+Route::get('/nuevo-cliente',[ClienteController::class,'nuevo'])->name('clienteNuevo');
+Route::post('/guardar-cliente',[ClienteController::class,'guardar'])->name('guardarCliente');
 
 require __DIR__.'/auth.php';
