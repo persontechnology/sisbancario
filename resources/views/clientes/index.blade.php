@@ -23,7 +23,7 @@
                     BANCO
                 </td>
                 <td>
-                    TAREA
+                    Cuenta
                 </td>
 
             </tr>
@@ -48,11 +48,7 @@
                         @endif
                     </td>
                     <td>
-                        realizar el editar y el eliminar con validacion
-                        <li>email correcto</li>
-                        <li>cedula ecuatoriana</li>
-                        <li>select y radio mostrar el valor antiguo</li>
-                        <li>mehorar la interfaz</li>
+                        <a href="{{ route('cuenta',$cliente->id) }}" class="btn btn-info">Cuentas</a>
                     </td>
                 </tr>
             @endforeach

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BancoController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\CuentaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,9 @@ Route::get('/destruir-banco/{id}',[BancoController::class,'destruir'])->name('de
 Route::get('/editar-banco/{id}',[BancoController::class,'editar'])->name('editarBanco');
 Route::post('/actualizar-banco',[BancoController::class,'actualizar'])->name('actualizarBanco');
 Route::get('/listado-clientes-banco/{id}',[BancoController::class,'listadoClientes'])->name('listadoClientesBanco');
+// cuentas
+Route::get('/cuentas/{idCliente}',[CuentaController::class,'index'])->name('cuenta');
+Route::post('/guardar-cuenta',[CuentaController::class,'guardar'])->name('guardarCuenta');
 
 // rutas para clientes
 Route::get('/clientes',[ClienteController::class,'index'])->name('clientes');
