@@ -36,6 +36,8 @@ Route::get('/listado-clientes-banco/{id}',[BancoController::class,'listadoClient
 // cuentas
 Route::get('/cuentas/{idCliente}',[CuentaController::class,'index'])->name('cuenta');
 Route::post('/guardar-cuenta',[CuentaController::class,'guardar'])->name('guardarCuenta');
+Route::get('/cuentas-realizar-deposito/{idCliente}',[CuentaController::class,'depositos'])->name('cuentaRealizarDeposito');
+Route::post('/guardar-cuenta-deposito',[CuentaController::class,'guardarDeposito'])->name('guardarCuentaDeposito');
 
 // rutas para clientes
 Route::get('/clientes',[ClienteController::class,'index'])->name('clientes');

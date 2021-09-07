@@ -23,6 +23,12 @@
                     BANCO
                 </td>
                 <td>
+                    DESPOSITOS
+                </td>
+                <td>
+                    RETIROS
+                </td>
+                <td>
                     Cuenta
                 </td>
 
@@ -46,6 +52,16 @@
                         @if($cliente->banco)
                                 {{ $cliente->banco->nombre }}
                         @endif
+                    </td>
+                    <td>
+                        <a href="{{ route('cuentaRealizarDeposito',$cliente->id) }}" class="btn btn-success">
+                            Realizar un deposito
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ route('cuenta',$cliente->id) }}" class="btn btn-warning">
+                            Realizar un retiro
+                        </a>
                     </td>
                     <td>
                         <a href="{{ route('cuenta',$cliente->id) }}" class="btn btn-info">Cuentas</a>

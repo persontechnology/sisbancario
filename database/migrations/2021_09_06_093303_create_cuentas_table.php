@@ -17,6 +17,7 @@ class CreateCuentasTable extends Migration
             $table->id();
             $table->timestamps();
             $table->decimal('monto',9,2);
+            $table->decimal('valor',9,2);
             $table->enum('tipo',['deposito','retiro'])->default('deposito');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');

@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Cuenta extends Model
 {
     use HasFactory;
+
+    public function deposito($monto)
+    {
+        return $this->monto+$monto;
+    }
+    public function retiro($monto)
+    {
+        return $this->monto-$monto;
+    }
 }
